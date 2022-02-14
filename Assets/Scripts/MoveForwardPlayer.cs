@@ -2,6 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/// <summary>
+/// Movement WASD | Arrows
+/// Place this script on the Player Camera (or Main Camera) to simulate
+/// player movement around the map.
+/// the camera around the scene and navigate through space.
+/// </summary>
 public class MoveForwardPlayer : MonoBehaviour
 {
     private float m_Speed = 20;
