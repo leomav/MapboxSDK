@@ -4,37 +4,32 @@ using UnityEngine;
 
 public class ClickOnMap : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
 
-    }
+    [SerializeField]
+    private float ClickDeltaTime = 0.2f;
 
-    // Update is called once per frame
-    void Update()
-    {
-        //if (Input.GetMouseButtonDown(0))
-        //{
-        //    var hit: RaycastHit;
-        //    var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+    private float downClickTime;
+    private bool isClicked;
 
-        //    if (Physics.Raycast(ray, hit))
-        //    {
-        //        if (hit.transform.name == "MyObjectName") Debug.Log("My object is clicked by mouse");
-        //    }
-        //}
-
-
-    }
 
     private void OnMouseDown()
     {
-        print("Map clicked.");
+        downClickTime = Time.time;
     }
 
-    private void OnMouseUpAsButton()
+    private void OnMouseUp()
     {
-        print("Mouse up as button");
+
+        isClicked = Time.time - downClickTime <= ClickDeltaTime ? true : false;
+
+        if (isClicked)
+        {
+           
+            POIManager.current.MapClicked();
+        }
+
     }
+
+
 }
 
