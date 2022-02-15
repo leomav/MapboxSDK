@@ -6,10 +6,16 @@ public class MoveWithTapOnMap : MonoBehaviour
 {
     private Vector3 targetPos;
 
+    private Vector3 targetPosWithAltitude;
+
     private bool moveCameraToPoint = false;
 
+    private float newCameraY;
+
     [SerializeField]
-    private float speed = 5;
+    private float rotateSpeed = 5;
+    [SerializeField]
+    private float moveSpeed = 5;
 
     // Start is called before the first frame update
     void Start()
@@ -23,11 +29,20 @@ public class MoveWithTapOnMap : MonoBehaviour
         if (moveCameraToPoint)
         {
 
-            // Rotate Towards
+            // Rotate Towards Target
             Quaternion rotTarget = Quaternion.LookRotation(targetPos - transform.position);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, rotTarget, speed * Time.deltaTime);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, rotTarget, rotateSpeed * Time.deltaTime);
 
-            if (Quaternion.Angle(rotTarget, transform.rotation) < 0.1f){
+            // Move Towards Target
+            transform.position = Vector3.MoveTowards(transform.position, targetPosWithAltitude, moveSpeed * Time.deltaTime);
+
+            var delta = targetPosWithAltitude - transform.position;
+            print(delta);
+
+            // Exit Check
+            if (Quaternion.Angle(rotTarget, transform.rotation) < 0.1f)
+                /*&& targetPosWithAltitude - transform.position < new Vector3(0.1f,0.1f,0.1f)*/
+            {
                 moveCameraToPoint = false;
             }
         }
@@ -38,6 +53,8 @@ public class MoveWithTapOnMap : MonoBehaviour
     {
         moveCameraToPoint = true;
         targetPos = mousePos;
+        newCameraY = targetPos.y + transform.position.y;
+        targetPosWithAltitude = new Vector3(targetPos.x, newCameraY, targetPos.z);
 
     }
 
