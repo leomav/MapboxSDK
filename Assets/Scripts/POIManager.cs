@@ -22,6 +22,7 @@ public class POIManager : MonoBehaviour
 
     public void MapClicked()
     {
+        print("Map Clicked");
         // Invoke Event for observers
         if (onMapClicked != null)
         {
@@ -49,9 +50,20 @@ public class POIManager : MonoBehaviour
 
     private void GetMousePositionToWorldSpace()
     {
-        mousePos = Input.mousePosition;
-        mousePos.z = Camera.main.nearClipPlane;
-        worldMousePos = Camera.main.ScreenToWorldPoint(mousePos);
+
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit))
+        {
+            //draw invisible ray cast/vector
+            Debug.DrawLine(ray.origin, hit.point);
+            //log hit area to the console
+            Debug.Log(hit.point);
+
+
+            worldMousePos = hit.point;
+        }
+
     }
 
 
