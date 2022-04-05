@@ -1134,6 +1134,7 @@ namespace Mapbox.Unity.Map
 		public virtual void SetWorldRelativeScale(float scale)
 		{
 			_worldRelativeScale = scale;
+			Debug.Log(scale);
 		}
 
 		public virtual void SetLoadingTexture(Texture2D loadingTexture)

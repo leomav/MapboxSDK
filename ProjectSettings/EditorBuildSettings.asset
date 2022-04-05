@@ -4,5 +4,12 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
-  m_configObjects: {}
+  m_Scenes:
+  - enabled: 0
+    path: Assets/WebEditor/MapWeb.unity
+    guid: d330913b11582284294414192265532d
+  - enabled: 1
+    path: Assets/Mapbox SDK/Mapbox/Examples/3_POIPlacement/POIPlacement.unity
+    guid: c600a8b272a5846a1b71bdc2d0796637
+  m_configObjects:
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 25427944abbae5545afe13991b4dfbed, type: 2}
