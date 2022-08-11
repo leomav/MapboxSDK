@@ -36,7 +36,6 @@ public class MoveToClick : MonoBehaviour
             usedCamera = Camera.main;
         }
 
-        POIManager.current.onMapDoubleClicked += CameraMoveToPoint;
     }
 
     // Update is called once per frame

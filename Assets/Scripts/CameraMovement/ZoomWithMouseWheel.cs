@@ -17,6 +17,22 @@ public class ZoomWithMouseWheel : MonoBehaviour
     void Update()
     {
 
-        ZoomCamera.fieldOfView -= Input.GetAxis("Mouse ScrollWheel") * ScrollSpeed;
+        //ZoomCamera.fieldOfView -= Input.GetAxis("Mouse ScrollWheel") * ScrollSpeed;
+
+
+        if (Input.GetAxis("Mouse ScrollWheel") != 0)
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit point;
+            Physics.Raycast(ray, out point, 25);
+            Vector3 Scrolldirection = ray.GetPoint(5);
+
+            float step = ScrollSpeed * Time.deltaTime;
+            transform.position = Vector3.MoveTowards(transform.position, Scrolldirection, Input.GetAxis("Mouse ScrollWheel") * step);
+        }
+
     }
+
+
+
 }

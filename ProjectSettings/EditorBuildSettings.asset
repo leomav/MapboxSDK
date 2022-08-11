@@ -8,8 +8,15 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/WebEditor/MapWeb.unity
     guid: d330913b11582284294414192265532d
-  - enabled: 1
+  - enabled: 0
     path: Assets/Mapbox SDK/Mapbox/Examples/3_POIPlacement/POIPlacement.unity
     guid: c600a8b272a5846a1b71bdc2d0796637
+  - enabled: 0
+    path: Assets/Scenes/Minimap.unity
+    guid: be3efc88f02f04a13a352f9e88f43ea3
+  - enabled: 1
+    path: Assets/Scenes/MapOrthographic.unity
+    guid: fce035937d7f0c0498f9e9b8f75b9df5
   m_configObjects:
+    UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: f3f87a7a3b03fa5429d7c404eeb861b1, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 25427944abbae5545afe13991b4dfbed, type: 2}

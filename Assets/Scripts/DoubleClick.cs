@@ -36,6 +36,5 @@ public class DoubleClick : MonoBehaviour
 
     void DoDoubleClick()
     {
-        POIManager.current.MapDoubleClicked();
     }
 }

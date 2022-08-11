@@ -24,8 +24,7 @@ public class ClickOnMap : MonoBehaviour
 
         if (isClicked)
         {
-           
-            POIManager.current.MapClicked();
+            Debug.Log("Simple Clicked");
         }
 
     }

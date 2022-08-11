@@ -8,7 +8,7 @@ using UnityEngine;
 /// Place this script on the Player Camera (or Main Camera) to move
 /// the camera around the scene and navigate through space.
 /// </summary>
-public class MoveCamera : MonoBehaviour
+public class WASD_Movement : MonoBehaviour
 {
     [SerializeField]
     private float m_Speed = 5;
